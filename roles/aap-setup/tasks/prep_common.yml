@@ -1,0 +1,50 @@
+---
+- name: "Remove specified packages"
+  ansible.builtin.package:
+    name: rh-amazon-rhui-client*
+    state: absent
+
+- name: "Manage repos with subscription mangler"
+  ansible.builtin.lineinfile:
+    path: /etc/rhsm/rhsm.conf
+    regexp: '^manage_repos'
+    line: 'manage_repos = 1'
+        
+- name: "Register with Activation Key"
+  community.general.redhat_subscription:
+    state: present
+    activationkey: "{{ rhn_activationkey }}"
+    org_id: "{{ rhn_orgid }}"
+  
+- name: "Generate SSH key pair on Bastion"
+  community.crypto.openssh_keypair:
+    path: "{{ ssh_key_private_path }}"
+    type: "{{ ssh_key_type }}"
+    size: "{{ ssh_key_size }}"
+    state: present
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+    mode: 0600
+  when: inventory_hostname == key_source_host
+  register: generated_key
+
+- name: "Store the new public key as a fact on localhost"
+  ansible.builtin.set_fact:
+    bastion_public_key: "{{ hostvars[key_source_host]['generated_key'].public_key }}"
+  run_once: true
+  delegate_to: localhost
+  delegate_facts: true
+  when:
+    - hostvars[key_source_host]['generated_key'] is defined
+    - hostvars[key_source_host]['generated_key'].public_key is defined
+    
+- name: "Copy the public key to target hosts"
+  ansible.posix.authorized_key:
+    user: "{{ ansible_user }}"
+    state: present
+    key: "{{ hostvars['localhost']['bastion_public_key'] }}"
+
+- name: "Set the system hostname"
+  ansible.builtin.hostname:
+    name: "{{ inventory_hostname }}"
+    use: systemd    

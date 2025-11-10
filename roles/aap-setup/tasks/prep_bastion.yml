@@ -1,0 +1,50 @@
+---
+- name: "Ensure work directory exists"
+  ansible.builtin.file:
+    path: "{{ install_path }}"
+    state: directory
+    mode: '0755'
+    owner: '{{ ansible_user }}'
+    group: '{{ ansible_user }}'
+
+- name: "Extract archive"
+  ansible.builtin.unarchive:
+    src: "{{ item }}"
+    dest: "{{ install_path }}"
+    remote_src: yes
+    owner: '{{ ansible_user }}'
+    group: '{{ ansible_user }}'
+  loop: "{{ download_files }}"
+
+- name: "Deploy 2.4 Inventory File"
+  ansible.builtin.template:
+    src: "{{ inv24_src }}"
+    dest: "{{ inv24_dest }}"
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+    mode: '0600'
+    backup: no
+
+- name: "Copy Sample Inventory File"
+  ansible.builtin.template:
+    src: "{{ inv_new_src }}"
+    dest: "{{ inv_new_dest }}"
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+    mode: '0600'
+    backup: no
+    
+- name: "Deploy SSH Config File"
+  ansible.builtin.template:
+    src: "{{ ssh_config_src }}"
+    dest: "{{ ssh_config_dest }}"
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+    mode: '0600'
+    backup: no
+    
+- name: "Install required packages"
+  ansible.builtin.package:
+    name: "{{ packages }}"
+    state: present
+  when: packages | length > 0

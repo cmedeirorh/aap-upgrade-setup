@@ -1,0 +1,44 @@
+---
+- name: AWS | CREATE VM | get subnet info
+  amazon.aws.ec2_vpc_subnet_info:
+    region: "{{ aws_region }}"
+    filters:
+      "tag:Name": "{{ aws_vpc_name }}-{{ aws_vpc_prefix }}-subnet"
+  register: aws_subnet
+
+- name: AWS | CREATE VM | save subnet id
+  ansible.builtin.set_fact:
+    aws_subnet_id: "{{ aws_subnet.subnets | map(attribute='id') | list | last }}"
+
+- name: AWS| CREATE VM | find ami
+  amazon.aws.ec2_ami_info:
+    region: "{{ aws_region }}"
+    owners: "{{ aws_image_owners | default(omit) }}"
+    filters:
+      name: "{{ aws_image_filter }}"
+      architecture: "{{ aws_image_architecture | default(omit) }}"
+  register: aws_amis
+
+- name: AWS| CREATE VM | create instance
+  amazon.aws.ec2_instance:
+    network:
+      assign_public_ip: true
+    key_name: "{{ aws_keypair_name }}"
+    instance_type: "{{ aws_instance_size }}"
+    image_id: "{{ aws_image_filter }}"
+    region: "{{ aws_region }}"
+    security_group: "{{ aws_securitygroup_name }}"
+    volumes:
+      - device_name: /dev/sda1
+        ebs:
+          volume_size: 30
+          delete_on_termination: yes
+    tags:
+      purpose: "{{ aws_purpose_tag }}"
+      ansible_group: "{{ aws_ansiblegroup_tag }}"
+      owner: "{{ aws_vm_owner }}"
+      Name: "{{ item }}"
+    vpc_subnet_id: "{{ aws_subnet_id }}"
+    #user_data: "{{ lookup('template', aws_userdata_template + '.j2', template_vars=dict(aws_vm_name=vm_name)) }}"
+  loop: "{{ instance_names }}"
+  register: aws_vm_output

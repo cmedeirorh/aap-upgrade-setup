@@ -1,0 +1,15 @@
+---
+- name: Deploy AWS Infra
+  hosts: localhost
+  gather_facts: false
+
+  tasks:
+    - name: Deploy AWS Infra
+      import_role:
+        name: aap-setup
+        tasks_from: create_infra.yml
+
+    - name: Deploy VM
+      import_role:
+        name: aap-setup
+        tasks_from: create_vm.yml

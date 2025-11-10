@@ -1,0 +1,50 @@
+---
+aws_vpc_name: ansible
+aws_vpc_prefix: demo
+aws_vpc_cidr_block: 10.0.0.0/16
+aws_subnet_cidr: 10.0.1.0/24
+aws_region: us-east-2
+aws_vm_name: "{{ vm_name }}"
+aws_vm_owner: "{{ vm_owner }}"
+aws_blueprint: "{{ vm_blueprint }}"
+aws_image_filter: ami-0c2cce1ca6b943930
+aws_instance_size: t3.large
+# aws_image_architecture: "{{ omit }}"
+# aws_image_owners: "{{ omit }} "
+aws_userdata_template: default
+aws_keypair_name: "{{ aws_vpc_name }}-{{ aws_vpc_prefix }}-demo-key"
+aws_securitygroup_name: "{{ aws_vpc_name }}-{{ aws_vpc_prefix }}-sec-group"
+aws_env_tag: prod
+aws_purpose_tag: ansible_workshop
+aws_ansiblegroup_tag: cloud
+aws_ec2_wait: true
+aws_snapshots: {}
+download_files: 
+  - url: "https://access.cdn.redhat.com"
+packages:
+  - vim
+  - git
+  - ansible-core  
+install_path: "/aap"
+ssh_key_private_path: "/home/{{ ansible_user }}/.ssh/id_rsa"
+ssh_key_public_path: "/home/{{ ansible_user }}/.ssh/id_rsa.pub"
+ssh_config_src: ssh_config.j2
+ssh_config_dest: "/home/{{ ansible_user }}/.ssh/config"
+subdomain: compute.internal
+inv24_src: inventory24.j2
+inv24_dest: /aap/inventory24
+inv_new_src: inventory_new_sample.j2
+inv_new_dest: /aap/inventory_new_sample
+ssh_key_type: "rsa"
+ssh_key_size: 4096
+key_source_host: "bastion"
+instance_names: 
+  - bastion
+  - controller1
+  - controller2
+  - hub1
+  - exec1
+  - database
+  - gateway1
+  - gateway2
+  - eda1
