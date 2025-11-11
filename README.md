@@ -43,6 +43,11 @@ Request an [AWS Blank Open Environment](https://catalog.demo.redhat.com/catalog?
   <img width="1886" height="934" alt="Screenshot 2025-11-11 at 1 44 58 PM" src="https://github.com/user-attachments/assets/7f0afdae-6689-430e-a289-a22a3a204683" />
   A variable called "aws_public_key" must be provided; the value must be a valid public SSH key that will be used to access the VMs once provisioned.
 
+* Run the **Template** and verify that the VMs were created in AWS.
+* Go back to the **Inventory** > **Sources**, and sync it. Check if the VMs are added to the **Inventory**
+  <img width="1894" height="531" alt="Screenshot 2025-11-11 at 1 56 40 PM" src="https://github.com/user-attachments/assets/7d6e6be8-f589-4b3b-89b5-d069c19df5ae" />
+* Switch to the **Hosts** tab and verify if the VMs are available.
+  <img width="1883" height="827" alt="Screenshot 2025-11-11 at 1 59 25 PM" src="https://github.com/user-attachments/assets/bae8b8b3-3f2e-4ecc-be89-54367be6ef5b" />
 
 
 
