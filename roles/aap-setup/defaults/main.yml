@@ -19,6 +19,11 @@ aws_purpose_tag: ansible_workshop
 aws_ansiblegroup_tag: cloud
 aws_ec2_wait: true
 aws_snapshots: {}
+vm_owner: demo
+aws_keypair_owner: demo
+aws_key_name: aws-test-key
+create_vm_aws_region: us-east-2
+vm_blueprint: rhel9
 download_files: 
   - url: "https://access.cdn.redhat.com"
 packages:
