@@ -27,6 +27,7 @@ Request an [AWS Blank Open Environment](https://catalog.demo.redhat.com/catalog?
 * Add a Source to create the inventory dynamically using the AWS plugin
   <img width="1820" height="768" alt="Screenshot 2025-11-11 at 1 20 03 PM" src="https://github.com/user-attachments/assets/c33eca0a-8cba-49aa-ac90-453b61b509d8" />
   <img width="1886" height="933" alt="Screenshot 2025-11-11 at 1 23 32 PM" src="https://github.com/user-attachments/assets/76fb5d20-19b5-43c6-ac17-032e6cace60a" />
+  Use these variables for the plugin: [aws_inventory_source_variables](https://github.com/cmedeirorh/aap-upgrade-setup/blob/main/aws_inventory_source_variables.yml)
 
 
 
