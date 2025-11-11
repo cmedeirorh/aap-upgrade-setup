@@ -1,0 +1,14 @@
+hostnames:
+  - tag:Name
+compose:
+  ansible_host: public_ip_address
+  ansible_user: ec2-user
+groups:
+  cloud_aws: true
+  os_linux: tags.blueprint.startswith('rhel')
+  controllers: tags.Name.startswith('controller')
+  hubs: tags.Name.startswith('hub')
+  executions: tags.Name.startswith('exec')
+  dbs: tags.Name.startswith('database')
+  edas: tags.Name.startswith('eda')
+  gateways: tags.Name.startswith('gateway')
