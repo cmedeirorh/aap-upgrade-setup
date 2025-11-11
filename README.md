@@ -24,6 +24,7 @@ Request an [AWS Blank Open Environment](https://catalog.demo.redhat.com/catalog?
 #### Also under **Infrastructure**, select **Inventories** and Create (or use an existing one)
   <img width="1339" height="683" alt="Screenshot 2025-11-11 at 1 12 16 PM" src="https://github.com/user-attachments/assets/feefef56-a262-4992-9532-60bd2e6613a7" />
   <img width="1885" height="931" alt="Screenshot 2025-11-11 at 1 16 19 PM" src="https://github.com/user-attachments/assets/ae0bb71a-e721-4ac5-8539-fc3afdf49a28" />
+
 * Add a Source to create the inventory dynamically using the AWS plugin
   <img width="1820" height="768" alt="Screenshot 2025-11-11 at 1 20 03 PM" src="https://github.com/user-attachments/assets/c33eca0a-8cba-49aa-ac90-453b61b509d8" />
   <img width="1886" height="933" alt="Screenshot 2025-11-11 at 1 23 32 PM" src="https://github.com/user-attachments/assets/76fb5d20-19b5-43c6-ac17-032e6cace60a" />
@@ -37,6 +38,7 @@ Request an [AWS Blank Open Environment](https://catalog.demo.redhat.com/catalog?
 #### Create **Templates** to run the automation
 * Under **Templates**, create a new **Job Template**
 <img width="1901" height="490" alt="Screenshot 2025-11-11 at 1 35 45 PM" src="https://github.com/user-attachments/assets/9b0d1911-548d-45c6-adef-fe246be76c81" />
+
 * First **Template** will create the AWS infrastructure and the VMs
   <img width="1886" height="934" alt="Screenshot 2025-11-11 at 1 44 58 PM" src="https://github.com/user-attachments/assets/7f0afdae-6689-430e-a289-a22a3a204683" />
   A variable called "aws_public_key" must be provided; the value must be a valid public SSH key that will be used to access the VMs once provisioned.
