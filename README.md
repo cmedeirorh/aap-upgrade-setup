@@ -37,6 +37,10 @@ Request an [AWS Blank Open Environment](https://catalog.demo.redhat.com/catalog?
 #### Create **Templates** to run the automation
 * Under **Templates**, create a new **Job Template**
 <img width="1901" height="490" alt="Screenshot 2025-11-11 at 1 35 45 PM" src="https://github.com/user-attachments/assets/9b0d1911-548d-45c6-adef-fe246be76c81" />
+* First **Template** will create the AWS infrastructure and the VMs
+  <img width="1886" height="934" alt="Screenshot 2025-11-11 at 1 44 58 PM" src="https://github.com/user-attachments/assets/7f0afdae-6689-430e-a289-a22a3a204683" />
+  A variable called "aws_public_key" must be provided; the value must be a valid public SSH key that will be used to access the VMs once provisioned.
+
 
 
 
