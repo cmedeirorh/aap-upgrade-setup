@@ -66,7 +66,6 @@ Request an [AWS Blank Open Environment](https://catalog.demo.redhat.com/catalog?
   - The variable "inv24_dest" should be changed according to the version of the update/files
   - The variables "rhn_activationkey" and "rhn_orgid" are used to register the nodes with the Red Hat subscriptions and can be generated on this link: [Red Hat Activation Keys](https://console.redhat.com/insights/connector/activation-keys)
   - The variables "reg_user" and "reg_pass" should be generated from [Registry Service Accounts](https://access.redhat.com/terms-based-registry/)
-  - The variable "download_files" should be a list of two links generated from [Downloads > Red Hat Ansible Automation Platform Product Software](https://access.redhat.com/downloads/content/480), which should contain AAP's setup scripts. One should be for AAP 2.4 RHEL9, and the other one AAP 2.5 or 2.6 RHEL9.
+  - The variable "download_files" should be a list of two links generated from [Downloads > Red Hat Ansible Automation Platform Product Software](https://access.redhat.com/downloads/content/480), which should contain AAP's setup scripts. One should be for AAP 2.4 RHEL9, and the other one AAP 2.5 or 2.6 RHEL9. Right-click on the **Download Now** link and select "Copy Link Address".
   - <img width="1568" height="998" alt="Screenshot 2025-11-11 at 3 12 02 PM" src="https://github.com/user-attachments/assets/23f13e60-b378-49f0-a825-46305f9cd6e4" />
-
-    
+  **Run the Job Template!**
