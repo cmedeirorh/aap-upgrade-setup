@@ -39,17 +39,33 @@ Request an [AWS Blank Open Environment](https://catalog.demo.redhat.com/catalog?
 * Under **Templates**, create a new **Job Template**
 <img width="1901" height="490" alt="Screenshot 2025-11-11 at 1 35 45 PM" src="https://github.com/user-attachments/assets/9b0d1911-548d-45c6-adef-fe246be76c81" />
 
-* First **Template** will create the AWS infrastructure and the VMs
+* First **Job Template** will create the AWS infrastructure and the VMs
   <img width="1886" height="934" alt="Screenshot 2025-11-11 at 1 44 58 PM" src="https://github.com/user-attachments/assets/7f0afdae-6689-430e-a289-a22a3a204683" />
   A variable called "aws_public_key" must be provided; the value must be a valid public SSH key that will be used to access the VMs once provisioned.
 
-* Run the **Template** and verify that the VMs were created in AWS.
+* Run the **Job Template** and verify that the VMs were created in AWS.
 * Go back to the **Inventory** > **Sources**, and sync it. Check if the VMs are added to the **Inventory**
   <img width="1894" height="531" alt="Screenshot 2025-11-11 at 1 56 40 PM" src="https://github.com/user-attachments/assets/7d6e6be8-f589-4b3b-89b5-d069c19df5ae" />
 * Switch to the **Hosts** tab and verify if the VMs are available.
   <img width="1883" height="827" alt="Screenshot 2025-11-11 at 1 59 25 PM" src="https://github.com/user-attachments/assets/bae8b8b3-3f2e-4ecc-be89-54367be6ef5b" />
 
+* Create a second **Job Template**, which will prepare the nodes and copy the required files to the "bastion" node
+  <img width="1891" height="946" alt="Screenshot 2025-11-11 at 2 53 08 PM" src="https://github.com/user-attachments/assets/ee25b5eb-b3e7-4f08-a8c6-d5fa661f06d9" />
+  The following **Extra variables** are required (the values are examples only):
+  ```
+  aap_password: ThisWorkshopIs!Awesome
+  inv24_dest: /aap/ansible-automation-platform-setup-2.4-13/inventory
+  rhn_activationkey: KEY
+  rhn_orgid: ORGID
+  reg_user: 444444|workshop
+  reg_pass: PASSWORD
+  download_files:
+    - https://access.cdn.redhat.com/content/origin/files/sha256/0e/0eaee0fdcf6884e201b34d265c2614b6872b4e02b3f7fe3a6de3e88b3043c6ec/ansible-automation-platform-setup-2.4-13.tar.gz?user=edc669ff3xxxxxx
+    - https://access.cdn.redhat.com/content/origin/files/sha256/00/0009626a82069791ce785f1b5883dda241ba849eeef378bca3d21562c16db894/ansible-automation-platform-setup-2.6-2.tar.gz?user=c8422xxxx
+  ```
+  - The variable "inv24_dest" should be changed according to the version of the update/files
+  - The variables "reg_user" and "reg_pass" should be generated from [Registry Service Accounts](https://access.redhat.com/terms-based-registry/)
+  - The variable "download_files" should be a list of two links generated from [Downloads > Red Hat Ansible Automation Platform Product Software](https://access.redhat.com/downloads/content/480), which should contain AAP's setup scripts. One should be for AAP 2.4 RHEL9, and the other one AAP 2.5 or 2.6 RHEL9.
+  - <img width="1568" height="998" alt="Screenshot 2025-11-11 at 3 12 02 PM" src="https://github.com/user-attachments/assets/23f13e60-b378-49f0-a825-46305f9cd6e4" />
 
-
-
-
+    
