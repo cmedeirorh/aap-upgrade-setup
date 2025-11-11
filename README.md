@@ -20,14 +20,23 @@ Request an [AWS Blank Open Environment](https://catalog.demo.redhat.com/catalog?
   <img width="1493" height="718" alt="Screenshot 2025-11-11 at 1 04 50 PM" src="https://github.com/user-attachments/assets/e52ca6c1-00c6-4049-a2d3-33b901f1599d" />
 * Create a credential for AWS with the details noted in Step 1
   <img width="1630" height="633" alt="image" src="https://github.com/user-attachments/assets/528684f3-1580-4466-8796-db090725ca7e" />
-* Also under **Infrastructure**, select **Inventories**
-* Create (or use an existing one) an **Inventory**
+
+#### Also under **Infrastructure**, select **Inventories** and Create (or use an existing one)
   <img width="1339" height="683" alt="Screenshot 2025-11-11 at 1 12 16 PM" src="https://github.com/user-attachments/assets/feefef56-a262-4992-9532-60bd2e6613a7" />
   <img width="1885" height="931" alt="Screenshot 2025-11-11 at 1 16 19 PM" src="https://github.com/user-attachments/assets/ae0bb71a-e721-4ac5-8539-fc3afdf49a28" />
 * Add a Source to create the inventory dynamically using the AWS plugin
   <img width="1820" height="768" alt="Screenshot 2025-11-11 at 1 20 03 PM" src="https://github.com/user-attachments/assets/c33eca0a-8cba-49aa-ac90-453b61b509d8" />
   <img width="1886" height="933" alt="Screenshot 2025-11-11 at 1 23 32 PM" src="https://github.com/user-attachments/assets/76fb5d20-19b5-43c6-ac17-032e6cace60a" />
   Use these variables for the plugin: [aws_inventory_source_variables](https://github.com/cmedeirorh/aap-upgrade-setup/blob/main/aws_inventory_source_variables.yml)
+  
+#### Create a **Project** to sync the automation code
+* Under **Projects**, create a new project with this Git repository: https://github.com/cmedeirorh/aap-upgrade-setup
+  <img width="1895" height="770" alt="Screenshot 2025-11-11 at 1 31 56 PM" src="https://github.com/user-attachments/assets/924f353d-cff2-4a79-be77-eb75b8824804" />
+  <img width="1871" height="926" alt="Screenshot 2025-11-11 at 1 32 29 PM" src="https://github.com/user-attachments/assets/25c33d5a-9c5b-414d-97c2-21a696968fc4" />
+
+#### Create **Templates** to run the automation
+* Under **Templates**, create a new **Job Template**
+<img width="1901" height="490" alt="Screenshot 2025-11-11 at 1 35 45 PM" src="https://github.com/user-attachments/assets/9b0d1911-548d-45c6-adef-fe246be76c81" />
 
 
 
