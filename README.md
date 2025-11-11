@@ -20,5 +20,15 @@ Request an [AWS Blank Open Environment](https://catalog.demo.redhat.com/catalog?
   <img width="1493" height="718" alt="Screenshot 2025-11-11 at 1 04 50 PM" src="https://github.com/user-attachments/assets/e52ca6c1-00c6-4049-a2d3-33b901f1599d" />
 * Create a credential for AWS with the details noted in Step 1
   <img width="1630" height="633" alt="image" src="https://github.com/user-attachments/assets/528684f3-1580-4466-8796-db090725ca7e" />
-* Also under **Infrastructure** and select **Inventories**
+* Also under **Infrastructure**, select **Inventories**
+* Create (or use an existing one) an **Inventory**
+  <img width="1339" height="683" alt="Screenshot 2025-11-11 at 1 12 16 PM" src="https://github.com/user-attachments/assets/feefef56-a262-4992-9532-60bd2e6613a7" />
+  <img width="1885" height="931" alt="Screenshot 2025-11-11 at 1 16 19 PM" src="https://github.com/user-attachments/assets/ae0bb71a-e721-4ac5-8539-fc3afdf49a28" />
+* Add a Source to create the inventory dynamically using the AWS plugin
+  <img width="1820" height="768" alt="Screenshot 2025-11-11 at 1 20 03 PM" src="https://github.com/user-attachments/assets/c33eca0a-8cba-49aa-ac90-453b61b509d8" />
+  <img width="1886" height="933" alt="Screenshot 2025-11-11 at 1 23 32 PM" src="https://github.com/user-attachments/assets/76fb5d20-19b5-43c6-ac17-032e6cace60a" />
+
+
+
+
 
